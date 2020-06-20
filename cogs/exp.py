@@ -5,8 +5,8 @@ import discord
 import random
 import asyncio
 
-logch='0'
-expch='1'
+logch='723815405486997574'
+expch='676738177062535168'
 
 class jgame(commands.Cog):
 
@@ -54,10 +54,10 @@ class jgame(commands.Cog):
         if q>0:
             up=conn.get(user)
             embed=discord.Embed(title="現在経験値",description=f'{ui.name}さんの経験値\n`{up}`',color=0x3498db)       
-            await ch.send(embed=embed)
+            await ctx.send(embed=embed)
         else:
             embed=discord.Embed(title="現在経験値",description=f'{ui.name}さんの経験値\n`登録されていません`',color=0xe74c3c)       
-            await ch.send(embed=embed)
+            await ctx.send(embed=embed)
 
 def setup(bot):
     bot.add_cog(jgame(bot))
