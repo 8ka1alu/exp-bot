@@ -18,9 +18,8 @@ class jgame(commands.Cog):
         if message.author.bot:
             return
         conn=r.connect()
-        ky=conn.keys()
-        kys=[k for k in ky]
-        if message.author.id not in kys:
+        ky=conn.exists(message.author.id)
+        if ky==0:
             uset=conn.set(message.author.id,'0')
             ch=self.bot.get_channel(logch)
             if uset == True:
