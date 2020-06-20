@@ -9,10 +9,8 @@ tokun=os.environ['DISCORD_BOT_TOKEN']
 
 # 読み込むコグの名前を格納しておく。
 INITIAL_EXTENSIONS = [
-    'cogs.stay',
-    'cogs.eval',
-    'cogs.game',
-    'cogs.roles'
+    'cogs.exp',
+    'cogs.eval'
 ]
 
 # クラスの定義。ClientのサブクラスであるBotクラスを継承。
@@ -37,23 +35,7 @@ class MyBot(commands.Bot):
         print(self.user.name)
         print(self.user.id)
         print('-----')
-        conn=r.connect()
-        ky=conn.keys()
-        p="人狼参加者"
-        count=0
-        for i in ky:
-            i=str(i)
-            if i == p:
-                count+=1
-        if count==0:
-            ps=conn.sadd(p,"0")
-            if p==True:
-                print("正常起動")
-            else:
-                print("異常発生")
-        else:
-            print(ky)
-        await self.change_presence(status=discord.Status.idle,activity=discord.Game(name=f'人狼げーむ')) 
+        await self.change_presence(status=discord.Status.idle,activity=discord.Game(name=f'経験値測定')) 
         
 
 # MyBotのインスタンス化及び起動処理。
