@@ -34,7 +34,8 @@ class jgame(commands.Cog):
             pss=[pl for pl in ps]
             p=random.choice(pss)
             up=conn.get(message.author.id)
-            up=str(up)
+            up=int(up)
+            p=int(p)
             up+=p
             upd=conn.set(message.author.id,up)
             ch=self.bot.get_channel(expch)
