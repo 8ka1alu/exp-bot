@@ -35,13 +35,12 @@ class jgame(commands.Cog):
             p=random.choice(pss)
             up=conn.get(message.author.id)
             up=int(up)
-            up2=up
             p=int(p)
             up+=p
             upd=conn.set(message.author.id,up)
             ch=self.bot.get_channel(expch)
             if upd == True:
-                embed=discord.Embed(title="登録通知",description=f'{message.author.name}さんに{up2}exp付与しました',color=0x3498db)       
+                embed=discord.Embed(title="登録通知",description=f'{message.author.name}さんに{p}exp付与しました',color=0x3498db)       
                 await ch.send(embed=embed)
             else:
                 embed=discord.Embed(title="登録通知",description=f'{message.author.name}さんの付与に失敗しました',color=0xe74c3c)       
