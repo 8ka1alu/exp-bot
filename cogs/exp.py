@@ -5,7 +5,7 @@ import discord
 import random
 import asyncio
 
-logch=723815405486997574
+logch=723818798905425971
 expch=676738177062535168
 
 class jgame(commands.Cog):
