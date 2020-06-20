@@ -35,7 +35,11 @@ class MyBot(commands.Bot):
         print(self.user.name)
         print(self.user.id)
         print('-----')
-        await self.change_presence(status=discord.Status.idle,activity=discord.Game(name=f'経験値測定')) 
+        conn=r.connect()
+        check=conn.exists('exp')
+        if check==0:
+            t=conn.sadd('exp','0')
+        await self.change_presence(status=discord.Status.online,activity=discord.Game(name=f'経験値測定')) 
         
 
 # MyBotのインスタンス化及び起動処理。
