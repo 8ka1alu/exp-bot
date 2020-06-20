@@ -15,6 +15,8 @@ class jgame(commands.Cog):
 
     @commands.Cog.listener()
     async def on_message(self, message):
+        if message.author.bot:
+            return
         conn=r.connect()
         ky=conn.keys()
         kys=[k for k in ky]
