@@ -49,8 +49,15 @@ class jgame(commands.Cog):
         if user == None:
             user=ctx.author.id
         conn=r.connect()
-        up=conn.get(user)
-        
+        q=conn.exists(user)
+        ui=self.bot.get_user(user)
+        if q>0:
+            up=conn.get(user)
+            embed=discord.Embed(title="現在経験値",description=f'{ui.name}さんの経験値\n`{up}`',color=0x3498db)       
+            await ch.send(embed=embed)
+        else:
+            embed=discord.Embed(title="現在経験値",description=f'{ui.name}さんの経験値\n`登録されていません`',color=0xe74c3c)       
+            await ch.send(embed=embed)
 
 def setup(bot):
     bot.add_cog(jgame(bot))
